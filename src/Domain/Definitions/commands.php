@@ -23,7 +23,7 @@ return [
             'cartId' => 'string',
             'sku' => 'string',
             'price' => 'string',
-            'addedAt' => 'string'
+            'removedAt' => 'string'
         ]
     ],
     'PlaceOrder' => [

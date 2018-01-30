@@ -7,15 +7,15 @@ class ProductWasRemovedFromCart implements \Diy\Domain\Interfaces\EventInterface
     private $cartId;
     private $sku;
     private $price;
-    private $addedAt;
+    private $removedAt;
 
-    public function __construct($customerId, $cartId, $sku, $price, $addedAt)
+    public function __construct($customerId, $cartId, $sku, $price, $removedAt)
     {
         $this->customerId = $customerId;
         $this->cartId = $cartId;
         $this->sku = $sku;
         $this->price = $price;
-        $this->addedAt = $addedAt;
+        $this->removedAt = $removedAt;
     }
 
     public function getcustomerId()
@@ -38,9 +38,9 @@ class ProductWasRemovedFromCart implements \Diy\Domain\Interfaces\EventInterface
          return $this->price;
     }
 
-    public function getaddedAt()
+    public function getremovedAt()
     {
-         return $this->addedAt;
+         return $this->removedAt;
     }
 
 }
