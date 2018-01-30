@@ -8,8 +8,8 @@ use Diy\Domain\Interfaces\EventInterface;
 class TestScenario
 {
     private $givenEvents = [];
-    private $whenCommands = [];
-    private $thenEvent;
+    private $whenCommand;
+    private $thenEvents = [];
 
     public function given(EventInterface $event)
     {
@@ -19,19 +19,19 @@ class TestScenario
 
     public function when(CommandInterface $command)
     {
-        $this->whenCommands[] = $command;
+        $this->whenCommand = $command;
         return $this;
     }
 
-    public function then($event)
+    public function then(EventInterface $event)
     {
-        $this->thenEvent = $event;
+        $this->thenEvents[] = $event;
         return $this;
     }
 
     public function thenNothing()
     {
-        $this->thenEvent = false;
+        $this->thenEvents = false;
         return $this;
     }
 
@@ -45,16 +45,13 @@ class TestScenario
         return $this->givenEvents;
     }
 
-    public function getWhenCommands(): array
+    public function getWhenCommand()
     {
-        return $this->whenCommands;
+        return $this->whenCommand;
     }
 
-    /**
-     * @return bool|EventInterface
-     */
-    public function getThenEvent()
+    public function getThenEvents(): array
     {
-        return $this->thenEvent;
+        return $this->thenEvents;
     }
 }
