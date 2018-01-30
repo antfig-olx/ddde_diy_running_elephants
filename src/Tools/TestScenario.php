@@ -7,19 +7,19 @@ use Diy\Domain\Interfaces\EventInterface;
 
 class TestScenario
 {
-    private $givenEvent;
-    private $whenCommand;
+    private $givenEvents = [];
+    private $whenCommands = [];
     private $thenEvent;
 
     public function given(EventInterface $event)
     {
-        $this->givenEvent[] = $event;
+        $this->givenEvents[] = $event;
         return $this;
     }
 
     public function when(CommandInterface $command)
     {
-        $this->whenCommand[] = $command;
+        $this->whenCommands[] = $command;
         return $this;
     }
 
@@ -38,5 +38,23 @@ class TestScenario
     public function assert()
     {
         throw new \Exception('Not implemented.');
+    }
+
+    public function getGivenEvents(): array
+    {
+        return $this->givenEvents;
+    }
+
+    public function getWhenCommands(): array
+    {
+        return $this->whenCommands;
+    }
+
+    /**
+     * @return bool|EventInterface
+     */
+    public function getThenEvent()
+    {
+        return $this->thenEvent;
     }
 }
