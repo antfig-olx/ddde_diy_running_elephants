@@ -2,7 +2,9 @@
 
 namespace Diy;
 
-class StartShoppingTest
+use PHPUnit\Framework\TestCase;
+
+class StartShoppingTest extends TestCase
 {
     public function testStartShopping()
     {

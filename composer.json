@@ -4,7 +4,15 @@
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Diy\\": ["src/", "tests"]
+            "Diy\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Diy\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6."
     }
 }
