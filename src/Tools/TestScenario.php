@@ -2,21 +2,24 @@
 
 namespace Diy\Tools;
 
+use Diy\Domain\Interfaces\CommandInterface;
+use Diy\Domain\Interfaces\EventInterface;
+
 class TestScenario
 {
     private $givenEvent;
     private $whenCommand;
     private $thenEvent;
 
-    public function given($event)
+    public function given(EventInterface $event)
     {
-        $this->givenEvent = $event;
+        $this->givenEvent[] = $event;
         return $this;
     }
 
-    public function when($command)
+    public function when(CommandInterface $command)
     {
-        $this->whenCommand = $command;
+        $this->whenCommand[] = $command;
         return $this;
     }
 
