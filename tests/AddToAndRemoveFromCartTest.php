@@ -14,7 +14,7 @@ class AddToAndRemoveFromCartTest extends \PHPUnit\Framework\TestCase
     /**
      * @var TestScenario
      */
-    private $scenario;
+    public $scenario;
 
     private $cartId;
     private $customerId;
