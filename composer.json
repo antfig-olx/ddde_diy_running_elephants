@@ -1,0 +1,10 @@
+{
+    "name": "dddeu_diy",
+    "description": "DDD-Europe workshop: Do it yourself",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Diy\\": ["src/", "tests"]
+        }
+    }
+}
