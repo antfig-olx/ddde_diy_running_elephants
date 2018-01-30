@@ -67,7 +67,7 @@ class AddToAndRemoveFromCartTest extends \PHPUnit\Framework\TestCase
                 new CustomerStartedShopping($this->customerId, $this->cartId)
             )
             ->given(
-                new AddProductToCart($this->customerId, $this->cartId, $this->sku, $this->price, $this->addedAt)
+                new ProductWasAddedToCart($this->customerId, $this->cartId, $this->sku, $this->price, $this->addedAt)
             )
             ->when(
                 new RemovePorductFromCart($this->customerId, $this->cartId, $this->sku, $this->price, $this->removedAt)
