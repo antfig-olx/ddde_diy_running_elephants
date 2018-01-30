@@ -74,6 +74,7 @@ class AddToAndRemoveFromCartTest extends \PHPUnit\Framework\TestCase
             )
             ->then(
                 new ProductWasRemovedFromCart($this->customerId, $this->cartId, $this->sku, $this->price, $this->removedAt)
-            );
+            )
+            ->assert();
     }
 }
