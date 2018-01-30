@@ -26,6 +26,12 @@ class TestScenario
         return $this;
     }
 
+    public function thenNothing()
+    {
+        $this->thenEvent = false;
+        return $this;
+    }
+
     public function assert()
     {
         throw new \Exception('Not implemented.');
