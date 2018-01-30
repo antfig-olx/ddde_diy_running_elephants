@@ -4,6 +4,7 @@ namespace Diy;
 
 use Diy\Domain\Commands\PlaceOrder;
 use Diy\Domain\Events\CustomerPlacedOrder;
+use Diy\Domain\Events\CustomerStartedShopping;
 use Diy\Domain\Events\ProductWasAddedToCart;
 use Diy\Tools\TestScenario;
 use PHPUnit\Framework\TestCase;
@@ -27,7 +28,9 @@ class PlaceOrderCenarioTest extends TestCase
 
         $cenario = new TestScenario();
 
-        $cenario->given(new ProductWasAddedToCart($customerId, $cartId, $sku,$price, $addedAt))
+        $cenario
+            ->given(new CustomerStartedShopping($customerId, $cartId))
+            ->given(new ProductWasAddedToCart($customerId, $cartId, $sku,$price, $addedAt))
             ->when(new PlaceOrder($customerId, $cartId, $orderTime))
             ->then(new CustomerPlacedOrder($customerId,  $cartId, $products))
             ->assert();
