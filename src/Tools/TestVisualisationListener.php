@@ -22,6 +22,9 @@ class TestVisualisationListener implements TestListener
 
         /** @var TestScenario $scenario */
         $scenario = $test->scenario;
+        if (is_null($scenario)) {
+            return;
+        }
 
         $items = [];
 
