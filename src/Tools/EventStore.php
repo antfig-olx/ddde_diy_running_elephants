@@ -20,4 +20,16 @@ class EventStore
             'event' => $event,
         ];
     }
+
+    public function fetchEventsOfCart($cartId)
+    {
+        $returnEvents = [];
+        foreach ($this->eventStream as $eventOfStream) {
+            if ($cartId == $eventOfStream['event']->getCartId()) {
+                $returnEvents[] = $eventOfStream;
+            }
+        }
+
+        return $returnEvents;
+    }
 }

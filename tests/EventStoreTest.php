@@ -84,6 +84,13 @@ class EventStoreTest extends TestCase
     public function testEventStore()
     {
         $eventStore = self::initializeWithDefaults();
-        print_r($eventStore);
+        $eventsOfCart = $eventStore->fetchEventsOfCart(11);
+        $this->assertEquals(
+            5,
+            count($eventsOfCart),
+            'Number of events for cart is not correct'
+        );
+        print_r($eventsOfCart);
+
     }
 }
