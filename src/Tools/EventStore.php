@@ -21,13 +21,24 @@ class EventStore
         ];
     }
 
-    public function fetchEventsOfCart($cartId)
+    public function fetchEventsOfCart($cartId, $metaKey = null, $metaValue = null)
     {
         $returnEvents = [];
         foreach ($this->eventStream as $eventOfStream) {
-            if ($cartId == $eventOfStream['event']->getCartId()) {
-                $returnEvents[] = $eventOfStream;
+            if ($cartId != $eventOfStream['event']->getCartId()) {
+                continue;
             }
+
+            if (! is_null($metaKey)) {
+                if (! array_key_exists($metaKey, $eventOfStream['meta'])) {
+                    continue;
+                }
+                if ($metaValue != $eventOfStream['meta'][$metaKey]) {
+                    continue;
+                }
+            }
+
+            $returnEvents[] = $eventOfStream;
         }
 
         return $returnEvents;

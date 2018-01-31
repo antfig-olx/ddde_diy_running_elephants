@@ -3,6 +3,7 @@ namespace Diy\Domain\Events;
 
 class ProductWasRemovedFromCart implements \Diy\Domain\Interfaces\EventInterface {
 
+    public $uuid;
     private $customerId;
     private $cartId;
     private $sku;
@@ -11,6 +12,7 @@ class ProductWasRemovedFromCart implements \Diy\Domain\Interfaces\EventInterface
 
     public function __construct($customerId, $cartId, $sku, $price, $removedAt)
     {
+        $this->uuid = rand(1, 100000);
         $this->customerId = $customerId;
         $this->cartId = $cartId;
         $this->sku = $sku;

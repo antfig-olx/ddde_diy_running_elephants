@@ -3,6 +3,7 @@ namespace Diy\Domain\Commands;
 
 class RemovePorductFromCart implements \Diy\Domain\Interfaces\CommandInterface {
 
+    public $uuid;
     private $customerId;
     private $cartId;
     private $sku;
@@ -11,6 +12,7 @@ class RemovePorductFromCart implements \Diy\Domain\Interfaces\CommandInterface {
 
     public function __construct($customerId, $cartId, $sku, $price, $removedAt)
     {
+        $this->uuid = rand(1, 100000);
         $this->customerId = $customerId;
         $this->cartId = $cartId;
         $this->sku = $sku;

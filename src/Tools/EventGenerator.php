@@ -25,7 +25,9 @@ class EventGenerator
                        'namespace Diy\\Domain\\' . $targetDir . ';' . PHP_EOL . PHP_EOL .
                        'class ' . $eventName . ' implements \\Diy\\Domain\\Interfaces\\' . $interfaceName . ' {' . PHP_EOL . PHP_EOL;
 
+
             // attributes
+            $content .= "    public \$uuid;" .  PHP_EOL;
             foreach ($eventDefinition['attributes'] as $attributeName => $definition) {
                 $content .= "    private \${$attributeName};" . PHP_EOL;
             }
@@ -38,6 +40,7 @@ class EventGenerator
             $content .= implode(', $', $attributeNames);
             $content .= ")" . PHP_EOL . "    {" . PHP_EOL;
 
+            $content .= "        \$this->uuid = rand(1, 100000);" . PHP_EOL;
             // set the values
             foreach ($eventDefinition['attributes'] as $attributeName => $definition) {
                 $content .= "        \$this->{$attributeName} = \${$attributeName};" . PHP_EOL;
