@@ -30,12 +30,10 @@ class TestVisualisationListener implements TestListener
             $items[] = $this->extractItemData($givenEvent, 'event');
         }
 
-        $whenCommands = $scenario->getWhenCommands();
-        foreach ($whenCommands as $whenCommand) {
-            $items[] = $this->extractItemData($whenCommand, 'command');
-        }
+        $whenCommand = $scenario->getWhenCommand();
+        $items[] = $this->extractItemData($whenCommand, 'command');
 
-        $thenEvents = $scenario->getThenEvent();
+        $thenEvents = $scenario->getThenEvents();
         if (false === $thenEvents) {
             $items[] = [
                 'type' => 'event',
