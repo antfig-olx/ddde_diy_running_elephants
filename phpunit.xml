@@ -1,0 +1,18 @@
+<phpunit
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.5/phpunit.xsd"
+  backupGlobals="true"
+  backupStaticAttributes="false"
+  bootstrap="src/bootstrap.php"
+  colors="true"
+  forceCoversAnnotation="true"
+  processIsolation="false"
+  stopOnRisky="false"
+  timeoutForSmallTests="1"
+  timeoutForMediumTests="10"
+  timeoutForLargeTests="60"
+  verbose="false">
+  <listeners>
+    <listener class="Diy\Tools\TestVisualisationListener" file="src/Tools/TestVisualisationListener.php" />
+  </listeners>
+</phpunit>
