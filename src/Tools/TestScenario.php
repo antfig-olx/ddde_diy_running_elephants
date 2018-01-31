@@ -37,6 +37,7 @@ class TestScenario
 
     public function assert()
     {
+        return;
         throw new \Exception('Not implemented.');
     }
 
@@ -50,7 +51,7 @@ class TestScenario
         return $this->whenCommand;
     }
 
-    public function getThenEvents(): array
+    public function getThenEvents()
     {
         return $this->thenEvents;
     }
